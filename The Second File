@@ -1,0 +1,1235 @@
+#The second - ".kv" file for front end 
+
+
+<ScreenOne>:
+    BoxLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"thomas-tastet-hSODeSbvzE0-unsplash.jpg"
+        Button:
+            text: "LANGUAGE CONVERSION APP"
+            color: 135/255,58/255,17/255,0.56
+            bold:True
+
+            font_name: 'DejaVuSans'
+            background_color:(0,0,0,0)
+            text_size: self.size
+
+            halign: 'center'
+            valign: 'middle'
+
+
+            size_hint: 0.3,0.3
+            pos: 50, 25
+            font_size:'35sp'
+
+
+            on_press:
+                root.manager.transition.direction = "left"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_two"
+
+<ScreenTwo>:
+    canvas:
+        Color:
+            rgb: (0.93, 0.93, 0.93)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+    GridLayout:
+        cols:1
+        size:root.width, root.height
+        padding: 100
+        spacing: 100
+
+        Button:
+            text: "MORSECODE  CONVERSION"
+            background_color: 0.1, 0.5, 0.6, 1
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_three"
+        Button:
+            text: "NUMBER  SYSTEM  CONVERSION"
+            bold:True
+            font_name: 'DejaVuSans'
+            background_color: 0.1, 0.5, 0.6, 1
+            text_size: self.size
+            font_size:20
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_four"
+
+
+
+
+<ScreenThree>:
+
+    id:main
+    inp:d
+    dbl: dd
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:d
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            multiline:True
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:dd
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            multiline:True
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_two"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.double_operation() if d.text !="" else root.single_operation()
+            on_release:root.add_user()
+
+<ScreenFour>:
+
+    BoxLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"markus-spiske-xekxE_VR0Ec-unsplash.jpg"
+        Button:
+            text: ""
+            background_color:(0,0,0,0)
+
+
+
+            font_size:'20sp'
+
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_two"
+    GridLayout:
+
+        cols:2
+        size:0.5, 0.3
+        size:self.size
+
+
+
+
+
+        padding: 100
+        spacing: 30
+
+
+        Button:
+            text: "Binary to Others"
+            background_color: 29/255, 122/255, 235/255,1
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+
+            on_text: root.do_on_text()
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+    
+
+
+
+
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_five"
+
+
+        Button:
+            text: "Octal to Others"
+            background_color: 186/255, 36/255, 23/255,1
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            on_text: root.do_on_text()
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+
+
+
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_six"
+
+        Button:
+            text: "Decimal to Others"
+            background_color: 16/255, 148/255, 9/255,1
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            on_text: root.do_on_text()
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+
+
+
+
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_seven"
+
+
+        Button:
+            text: "HexaDecimal to Others"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            on_text: root.do_on_text()
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_eight"
+
+
+<ScreenFive>:
+
+    BoxLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        Button:
+            text: ""
+            background_color:(0,0,0,0)
+
+
+
+            font_size:'20sp'
+
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_four"
+
+
+    GridLayout:
+        cols:1
+        size: 0.3,0.3
+
+        padding: 200
+        spacing: 0
+
+
+        Button:
+            text: "Binary to Decimal"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_nine"
+        Button:
+            text: "Binary to Octal"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_ten"
+
+        Button:
+            text: "Binary to HexaDecimal"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_eleven"
+
+
+<ScreenSix>:
+
+    BoxLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        Button:
+            text: ""
+            background_color:(0,0,0,0)
+
+
+
+            font_size:'20sp'
+
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_four"
+
+    GridLayout:
+        cols:1
+        size: 0.3,0.3
+
+        padding: 200
+        spacing: 0
+        Button:
+            text: "Octal to Decimal"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_twelve"
+
+        Button:
+            text: "Octal to Binary"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_thirteen"
+
+        Button:
+            text: "Octal to HexaDecimal"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_fourteen"
+
+<ScreenSeven>:
+
+    BoxLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        Button:
+            text: ""
+            background_color:(0,0,0,0)
+
+
+
+            font_size:'20sp'
+
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_four"
+
+    GridLayout:
+        cols:1
+        size: 0.3,0.3
+
+        padding: 200
+        spacing: 0
+        Button:
+            text: "Decimal to Binary"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_fifteen"
+
+        Button:
+            text: "Decimal to Octal"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_sixteen"
+
+        Button:
+            text: "Decimal to HexaDecimal"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_seventeen"
+
+
+<ScreenEight>:
+
+    BoxLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        Button:
+            text: ""
+            background_color:(0,0,0,0)
+
+
+
+            font_size:'20sp'
+
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_four"
+
+    GridLayout:
+        cols:1
+        size: 0.3,0.3
+
+        padding: 200
+        spacing: 0
+        Button:
+            text: "HexaDecimal to Binary"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_eighteen"
+
+        Button:
+            text: "HexaDecimal to Octal"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_nineteen"
+
+        Button:
+            text: "HexaDecimal to Decimal"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+
+            on_press:
+                root.manager.transition.direction= "left"
+                root.manager.transition.duration=1
+                root.manager.current = "screen_twenty"
+
+<ScreenNine>:
+
+    id:main
+    btod : bd
+    btd : db
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:bd
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:db
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_five"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.bin_dec()
+            on_release:root.add2_user()
+
+
+<ScreenTen>:
+
+    id:main
+    btoo:bo
+    bto: ob
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:bo
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:ob
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_five"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.bin_oct()
+            on_release:root.add1_user()
+
+
+
+<ScreenEleven>:
+
+    id:main
+    btoh:bh
+    bth: hb
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:bh
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:hb
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_five"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.bin_hex()
+            on_release:root.add3_user()
+
+<ScreenTwelve>:
+
+    otod:od
+    otd:do
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:od
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        TextInput:
+            id:do
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_six"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.oct_dec()
+            on_release:root.add4_user()
+
+
+
+<ScreenThirteen>:
+
+    otob:ob
+    otb:bo
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:ob
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        TextInput:
+            id:bo
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_six"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.oct_bin()
+            on_release:root.add5_user()
+
+
+
+
+
+<ScreenFourteen>:
+    id:main
+    otoh:oh
+    oth:ho
+
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:oh
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:ho
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_six"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.oct_hex()
+            on_release:root.add6_user()
+
+<ScreenFifteen>:
+    id:main
+    dtob:db
+    dtb:bd
+
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:db
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:bd
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_seven"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.dec_bin()
+            on_release:root.add7_user()
+
+
+<ScreenSixteen>:
+    id:main
+    dtoo:do
+    dto:od
+
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:do
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:od
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_seven"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.dec_oct()
+            on_release:root.add8_user()
+
+
+
+
+
+<ScreenSeventeen>:
+    id:main
+    dtoh:dh
+    dth:hd
+
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:dh
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:hd
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_seven"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.dec_hex()
+            on_release:root.add9_user()
+
+
+
+<ScreenEighteen>:
+    id:main
+    htob:hb
+    htb:bh
+
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:hb
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:bh
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_eight"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.hex_bin()
+            on_release:root.add10_user()
+
+
+<ScreenNineteen>:
+    id:main
+    htoo:ho
+    hto:oh
+
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:ho
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:oh
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_eight"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.hex_oct()
+            on_release:root.add11_user()
+
+
+<ScreenTwenty>:
+    id:main
+    htod:hd
+    htd:dh
+
+    GridLayout:
+        canvas.before:
+            Rectangle:
+                size:self.size
+                pos:self.pos
+                source:"ghj.jpg"
+        cols:2
+        padding: 50
+        spacing: 50
+        size:root.width, root.height
+
+
+        TextInput:
+            id:hd
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+
+        TextInput:
+            id:dh
+            multiline:False
+            background_color:(1,1,1,0.8)
+
+        Button:
+            text:"Back"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            on_press:
+                root.manager.transition.direction = "right"
+                root.manager.transition.duration = 1
+                root.manager.current = "screen_eight"
+            font_size:'20sp'
+            size_hint:(.1, .1)
+
+
+        Button:
+            text:"Enter"
+            bold:True
+            font_size:20
+            font_name: 'DejaVuSans'
+            text_size: self.size
+            halign: 'center'
+            valign: 'middle'
+            font_size:'20sp'
+            size_hint:(.1, .1)
+            on_release:root.hex_dec()
+            on_release:root.add12_user()
