@@ -10,3 +10,7 @@
   
   into each others.
      
+FRAMEWORK USED - KIVY WITH PYTHON
+DATABASE USED - SQLITE3 
+
+
