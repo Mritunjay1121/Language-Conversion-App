@@ -1,0 +1,8 @@
+Kivy	
+Kivy-Garden	
+kivy-deps.angle	
+kivy-deps.angle-dev	
+kivy-deps.glew
+kivy-deps.sdl2	
+requests	
+urllib3	
